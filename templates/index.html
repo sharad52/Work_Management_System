@@ -38,7 +38,7 @@
 						{% endif %}
 					</td>
 					<td>
-						<a href="{% url 'SurfaceApp:UpdateWork' item.slug %}"><i class="far fa-edit"></i></a>&nbsp;&nbsp;<a href="{% url 'SurfaceApp:DeleteWork' item.slug %}"><i class="fas fa-trash-alt"></i></a>
+						<a href="{% url 'SurfaceApp:UpdateWork' item.slug %}"><i title="edit" class="far fa-edit"></i></a>&nbsp;&nbsp;<a href="{% url 'SurfaceApp:DeleteWork' item.slug %}"><i title="delete" class="fas fa-trash-alt"></i></a>
 					</td>
 				</tr>
 				{% endfor %}

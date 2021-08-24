@@ -31,8 +31,8 @@ def addWork(request,*args,**kwargs):
 	}
 	return render(request,'pages/add-form.html',context)
 
-def UpdateWork(request,pk):
-	work = get_object_or_404(WorkDetail,id=pk)
+def UpdateWork(request,slug):
+	work = get_object_or_404(WorkDetail,slug=slug)
 	form = WorkDetailForm(instance=work)
 	if request.method == 'POST':
 		form = WorkDetailForm(request.POST,instance=work)
@@ -47,8 +47,8 @@ def UpdateWork(request,pk):
 	}
 	return render(request,'pages/add-form.html',context)
 
-def DeleteWork(request,pk):
-	work = get_object_or_404(WorkDetail,id=pk)
+def DeleteWork(request,slug):
+	work = get_object_or_404(WorkDetail,slug=slug)
 	if request.method == 'POST':
 		work.delete()
 		messages.success(request,'Deleted Successfully')

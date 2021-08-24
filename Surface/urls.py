@@ -6,6 +6,6 @@ app_name = "SurfaceApp"
 urlpatterns = [
 	path('',Index,name="index"),
 	path('add-work-details/',addWork,name="AddWork"),
-	path('update-work-details/<int:pk>/',UpdateWork,name="UpdateWork"),
-	path('delete-work/<int:pk>/',DeleteWork,name="DeleteWork"),
+	path('update-work-details/<str:slug>/',UpdateWork,name="UpdateWork"),
+	path('delete-work/<str:slug>/',DeleteWork,name="DeleteWork"),
 ]

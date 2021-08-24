@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+
+	<div class="container">
+		<div class="message">
+			{% if messages %}
+				{% for message in messages %}
+					{{ message }}
+				{% endfor %}
+			{% endif %}
+		</div>
+		<div class="row">
+			<h2> Work Details <span class="add"><a href="{% url 'SurfaceApp:AddWork' %}"><i class="fas fa-plus"></i></a></span></h2>
+		</div>
+		<table>
+			<thead>
+				<tr>
+					<th>S.N.</th>
+					<th>Project Name</th>
+					<th>Type</th>
+					<th>Duration(Days)</th>
+					<th>Status</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for item in work %}
+				<tr>
+					<td>{{ forloop.counter }}</td>
+					<td>{{item.project}}</td>
+					<td>{{item.project_type}}</td>
+					<td>{{item.duration}}</td>
+					<td>
+						{% if item.is_complete %}
+							<a href="#"><i class="fas fa-check-circle"></i></a>
+						{% else %}
+							<a href="#"><i class="fas fa-times-circle"></i></a>
+						{% endif %}
+					</td>
+					<td>
+						<a href="{% url 'SurfaceApp:UpdateWork' item.id %}"><i class="far fa-edit"></i></a>&nbsp;&nbsp;<a href="{% url 'SurfaceApp:DeleteWork' item.id %}"><i class="fas fa-trash-alt"></i></a>
+					</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>				
+	</div>
+
+{% endblock %}

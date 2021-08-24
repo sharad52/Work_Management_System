@@ -1,0 +1,7 @@
+<form action="{% url 'SurfaceApp:DeleteWork' work.id %}" method="POST">{% csrf_token %}
+<p>Are you sure you want to delete {{ work }} ? </p>
+
+<a href="{% url 'SurfaceApp:index' %}">Cancel</a>
+<input type="submit" name="Confirm">
+	
+</form>

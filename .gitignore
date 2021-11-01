@@ -1,2 +1,4 @@
 #nothing added in this file 
-#we can add those files here which is not necessary to keep tracking like database ,media files 
+#we can add those files here which is not necessary to keep tracking like database ,media fil
+*.sqlite3
+

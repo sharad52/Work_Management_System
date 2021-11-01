@@ -8,7 +8,9 @@ from Surface.forms import WorkDetailForm
 # Create your views here.
 def Index(request,*args,**kwargs):
 	work = WorkDetail.objects.all()
+	total_work = WorkDetail.objects.count()
 	context = {
+	'work_count':total_work,
 	'work':work,
 	}
 	return render(request,'index.html',context)

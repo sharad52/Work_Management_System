@@ -1,12 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
-<<<<<<< HEAD
 <form action="{% url 'SurfaceApp:DeleteWork' work.slug %}" method="POST">{% csrf_token %}
 	<h5>Are you sure you want to delete {{ work }} ? </h5>
-=======
-	<form action="{% url 'SurfaceApp:DeleteWork' work.id %}" method="POST">{% csrf_token %}
-		<p>Are you sure you want to delete {{ work }} ? </p>
->>>>>>> parent of 48a88e3... delete
 
 	<a href="{% url 'SurfaceApp:index' %}" class="action-btn-danger">Cancel</a>
 	<input class="action-btn-success" type="submit" name="Confirm">

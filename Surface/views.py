@@ -58,3 +58,7 @@ def DeleteWork(request,slug):
 
 	}
 	return render(request,'pages/delete-form.html',context)
+
+
+def TestFunction(request,*args,**kwargs):
+	return HttpResponse("Test function")

@@ -66,3 +66,7 @@ def DeleteWork(request, slug):
 
     }
     return render(request, 'pages/delete-form.html', context)
+
+
+def Justify_work(request, *args, **kwargs):
+    return HttpResponse("hello")

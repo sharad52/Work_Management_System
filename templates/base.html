@@ -1,7 +1,7 @@
-
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
 	<link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
 </head>
+
 <body>
 	{% include 'partials/__navbar.html' %}
 
@@ -19,6 +20,33 @@
 	{% endblock %}
 
 	<!-- Script -->
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<script src="{% static 'js/app.js' %}"></script>
+	<script>
+		function deleteItem(slug) {
+			swal({
+				title: slug,
+				text: "Are you sure you want to delete items",
+				icon: "warning",
+				button: true,
+
+			}).then((willDelete) => {
+				if (willDelete) {
+					$.ajax({
+						url: "",
+						method: '',
+						contentType: "",
+						cache: false,
+						processData: false,
+						success: () => {},
+						error: () => {}
+
+					})
+				}
+
+			})
+		}
+	</script>
 </body>
+
 </html>

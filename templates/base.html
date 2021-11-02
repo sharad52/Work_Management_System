@@ -1,7 +1,7 @@
-
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
 	<link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
 </head>
+
 <body>
 	{% include 'partials/__navbar.html' %}
 
@@ -19,6 +20,42 @@
 	{% endblock %}
 
 	<!-- Script -->
+	<script>
+		var token = "{{csrf_token}}";
+	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<script src="{% static 'js/app.js' %}"></script>
+	<script>
+		function deleteItem(slug) {
+			swal({
+				title: slug,
+				text: "Are you sure you want to delete items",
+				icon: "warning",
+				buttons: true,
+
+			}).then((willDelete) => {
+				if (willDelete) {
+					$.ajax({
+						url:"delete-work/"+ slug +"/",
+						type: "delete",
+						dataType: "json",
+						beforeSend: (xhr) => {
+							xhr.setRequestHeader("X-CSRFToken", token);
+						},
+						success: ()=> {
+							alert('Done!!!!!')
+						},
+						error: () => {
+							window.location.reload()
+						}
+						
+					})
+				}
+
+			})
+		}
+	</script>
 </body>
+
 </html>

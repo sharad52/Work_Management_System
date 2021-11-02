@@ -57,7 +57,7 @@ def UpdateWork(request, slug):
 
 def DeleteWork(request, slug):
     work = get_object_or_404(WorkDetail, slug=slug)
-    if request.method == 'POST':
+    if request.method == 'DELETE':
         work.delete()
         messages.success(request, 'Deleted Successfully')
         return HttpResponseRedirect(reverse('SurfaceApp:index'))
@@ -69,4 +69,8 @@ def DeleteWork(request, slug):
 
 
 def Justify_work(request, *args, **kwargs):
+    #your code here
+    #check responce here
+    #checking git diff work and all
+
     return HttpResponse("hello")

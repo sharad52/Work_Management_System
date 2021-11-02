@@ -13,7 +13,7 @@ class WorkDetail(models.Model):
             ('Database', 'Database'),
             ('FullStack', 'FullStack'),
             ('Test', 'Test'),
-        ('hello', 'hello')
+            ('hello', 'hello')
     )
     project = models.CharField(max_length=120)
     project_type = models.CharField(max_length=40, choices=TYPES)

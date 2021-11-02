@@ -57,7 +57,7 @@ def UpdateWork(request, slug):
 
 def DeleteWork(request, slug):
     work = get_object_or_404(WorkDetail, slug=slug)
-    if request.method == 'DELETE':
+    if request.method == 'POST':
         work.delete()
         messages.success(request, 'Deleted Successfully')
         return HttpResponseRedirect(reverse('SurfaceApp:index'))

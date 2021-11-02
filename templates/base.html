@@ -42,19 +42,6 @@
 				if (willDelete) {
 					console.log("{{csrf_token}}")
 					$.ajax({
-						url:"delete-work/"+ slug +"/",
-						type: "delete",
-						dataType: "json",
-						beforeSend: (xhr) => {
-							xhr.setRequestHeader("X-CSRFToken", token);
-						},
-						success: ()=> {
-							alert('Done!!!!!')
-						},
-						error: () => {
-							window.location.reload()
-						},
-						
 						url: "delete-work/" + slug + "/",
 						method: 'post',
 						beforeSend: function (xhr) {

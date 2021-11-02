@@ -40,8 +40,11 @@
 				</td>
 				<td>
 					<a href="{% url 'SurfaceApp:UpdateWork' item.slug %}"><i title="edit"
-							class="far fa-edit"></i></a>&nbsp;&nbsp;<button onclick="deleteItem('{{item.slug}}')"><i
-							title="delete" class="fas fa-trash-alt" style="color:red"></i></button>
+							class="far fa-edit"></i></a>&nbsp;&nbsp;
+					<button onclick="deleteItem('{{item.slug}}')"><i title="delete" class="fas fa-trash-alt"
+							style="color:red"></i></button>
+					<button onclick="deleteItem('{{item.slug}}')"><i title="delete" class="fas fa-trash-alt"
+							style="color:red"></i></button>
 				</td>
 			</tr>
 			{% endfor %}

@@ -71,5 +71,6 @@ def DeleteWork(request, slug):
 def Justify_work(request, *args, **kwargs):
     #your code here
     #check responce here
+    #checking git diff work and all
 
     return HttpResponse("hello")

@@ -24,6 +24,8 @@
 		var token = "{{csrf_token}}";
 	</script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.js"
+		integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<script src="{% static 'js/app.js' %}"></script>
 	<script>
@@ -33,9 +35,12 @@
 				text: "Are you sure you want to delete items",
 				icon: "warning",
 				buttons: true,
+				dangerMode: true,
 
 			}).then((willDelete) => {
+				console.log(willDelete)
 				if (willDelete) {
+					console.log("{{csrf_token}}")
 					$.ajax({
 						url:"delete-work/"+ slug +"/",
 						type: "delete",
@@ -48,8 +53,36 @@
 						},
 						error: () => {
 							window.location.reload()
-						}
+						},
 						
+						url: "delete-work/" + slug + "/",
+						method: 'post',
+						beforeSend: function (xhr) {
+							xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+							xhr.setRequestHeader('X-CSRFToken', '{{csrf_token}}');
+						},
+						success: () => {
+							swal(
+								{
+									title: "success",
+									text: "Item Deleted successfully",
+									icon: "success"
+								}
+							).then((value) => {
+								location.reload();
+							})
+
+						},
+						error: () => {
+							swal(
+								{
+									title: "Error",
+									text: "Error deleting Item",
+									icon: "error"
+								}
+							)
+						}
+
 					})
 				}
 

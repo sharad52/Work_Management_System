@@ -33,15 +33,17 @@
 				<td>{{item.duration}}</td>
 				<td>
 					{% if item.is_complete %}
-					<a href="#"><i class="fas fa-check-circle"></i></a>
+					<a href="#"><i class="fas fa-check-circle" style="color:green"></i></a>
 					{% else %}
-					<a href="#"><i class="fas fa-times-circle"></i></a>
+					<a href="#"><i class="fas fa-times-circle" style="color:red"></i></a>
 					{% endif %}
 				</td>
 				<td>
 					<a href="{% url 'SurfaceApp:UpdateWork' item.slug %}"><i title="edit"
-							class="far fa-edit"></i></a>&nbsp;&nbsp;<button onclick="deleteItem('{{item.slug}}')"><i
-							title="delete" class="fas fa-trash-alt" style="color:red"></i></button>
+							class="far fa-edit"></i></a>&nbsp;&nbsp;
+					<button onclick="deleteItem('{{item.slug}}')"><i title="delete" class="fas fa-trash-alt"
+							style="color:red"></i></button>
+
 				</td>
 			</tr>
 			{% endfor %}

@@ -53,10 +53,9 @@ MIDDLEWARE = [
 ]
 
 CORS_ORIGIN_WHITELIST = ('http://localhost:8000',)
-CORS_ALLOW_METHODS = ( 'GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS' )
+CORS_ALLOW_METHODS = ('GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS')
 
 ROOT_URLCONF = 'work_management_system.urls'
-
 
 
 TEMPLATES = [
@@ -126,13 +125,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR/'static',]
+STATICFILES_DIRS = [BASE_DIR/'static', ]
 
 
 # Media Url
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = [BASE_DIR/'media',]
+MEDIA_ROOT = [BASE_DIR/'media', ]
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 

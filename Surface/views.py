@@ -74,7 +74,7 @@ class WorkListView(ListView):
     pass
 
 class WorkDetailView(DetailView):
-    queryset = WorkDetail.objects.all()
+    model = WorkDetail #you can write queryset = model_name.objects.all() here also
     template_name = 'pages/workdetail.html'
     context_object_name = 'work_detail' 
 

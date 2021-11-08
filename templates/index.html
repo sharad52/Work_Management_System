@@ -28,7 +28,7 @@
 			{% for item in work %}
 			<tr>
 				<td>{{ forloop.counter }}</td>
-				<td>{{item.project}}</td>
+				<td><a href="{% url 'SurfaceApp:DetailWorkView' item.id %}">{{item.project}}</a></td>
 				<td>{{item.project_type}}</td>
 				<td>{{item.duration}}</td>
 				<td>

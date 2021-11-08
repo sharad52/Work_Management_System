@@ -1,9 +1,12 @@
 from django.shortcuts import render, get_object_or_404
+from django.utils import timezone
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import reverse
 from Surface.models import WorkDetail
 from django.contrib import messages
 from Surface.forms import WorkDetailForm
+from django.views.generic import ListView
+from django.views.generic import DetailView
 
 # Create your views here.
 # dkfahskjdfhas
@@ -67,10 +70,11 @@ def DeleteWork(request, slug):
     }
     return render(request, 'pages/delete-form.html', context)
 
+class WorkListView(ListView):
+    pass
 
-def Justify_work(request, *args, **kwargs):
-    #your code here
-    #check responce here
-    #checking git diff work and all
+class WorkDetailView(DetailView):
+    queryset = WorkDetail.objects.all()
+    template_name = 'pages/workdetail.html'
+    context_object_name = 'work_detail' 
 
-    return HttpResponse("hello")
